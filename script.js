@@ -63,3 +63,27 @@ const timeInterval = setInterval(updateTime, 1000);
 function getRandomWord() {
     return words[Math.floor(Math.random() * words.length)];
 }
+
+// Add word to DOM
+function addWordToDOM() {
+    randomWord = getRandomWord();
+    word.innerHTML = randomWord;
+}
+
+// Update score
+function updateScore() {
+    score++;
+    scoreEl.innerHTML = score;
+}
+
+// Update time
+function updateTime() {
+    time--;
+    timeEl.innerHTML = time + 's';
+
+    if (time === 0) {
+        clearInterval(timeInterval);
+        // end game
+        gameOver();
+    }
+}
